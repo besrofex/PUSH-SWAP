@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   append_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 20:37:08 by ylabser           #+#    #+#             */
+/*   Created: 2025/01/23 21:35:47 by ylabser           #+#    #+#             */
 /*   Updated: 2025/01/23 22:00:30 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void    append_node(t_stack **a, int nbr)
 {
-    t_stack    *a;
+    t_stack *new_node;
+    t_stack *last_node;
 
-    a = NULL;
-    if (argc == 1 || (argc == 2 && !argv[1][0]))
-        return (1);
-    else if (argc == 2)
-        argv = ft_split(argv[1], ' ');
-    creat_stack(&a, argv + 1);
+    if (!a)
+        return ;
+    new_node = malloc(sizeof(t_stack));
+    if (!new_node)
+        return ;
+    new_node->value = nbr;
+    new_node->next = NULL;
+    if (*a == NULL)
+    {
+        *a = new_node;
+        new_node->prev= NULL;
+    }
+    else
+    {
+        last_node = ft_lstlast(*a);
+        last_node->next = new_node;
+        new_node->prev = last_node;
+    }
 }
