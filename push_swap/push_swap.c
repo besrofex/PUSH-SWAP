@@ -6,8 +6,13 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:20:36 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/23 20:18:45 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/24 19:28:28 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void    push_swap(t_stack **a, t_stack **b)
+{
+
+}

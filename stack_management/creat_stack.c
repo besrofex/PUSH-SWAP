@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:41:40 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/23 22:00:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/24 19:28:28 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    creat_stack(t_stack **a, char **argv)
         if (nbr < INT_MAX || nbr > INT_MAX)
             error_free(a, argv);
         if (error_repetition(*a, (int)nbr))
-            error_free(a, arv);
+            error_free(a, argv);
         append_node(a, (int)nbr);
         i++;
     }

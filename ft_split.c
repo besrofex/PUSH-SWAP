@@ -54,7 +54,7 @@ static char	**free_mem(char **c, int i)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**arr;
 	int		i;

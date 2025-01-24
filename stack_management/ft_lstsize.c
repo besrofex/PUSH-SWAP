@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 21:56:27 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/24 18:02:53 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/24 19:04:13 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/24 19:28:28 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_lstlast(t_stack *lst)
+int	ft_lstsize(t_stack *lst)
 {
+	int		count;
 	t_stack	*current;
 
-	if (lst == NULL)
-		return (NULL);
 	current = lst;
-	while (current->next != NULL)
+	count = 0;
+	while (current != NULL)
+	{
+		count++;
 		current = current->next;
-	return (current);
+	}
+	return (count);
 }

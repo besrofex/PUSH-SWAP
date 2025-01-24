@@ -27,7 +27,7 @@ static int	check_signe(int signe)
 		return (-1);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int		i;
 	int		signe;

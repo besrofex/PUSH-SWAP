@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/23 22:00:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/24 19:28:28 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-#include <limit>
+# include <limits.h>
 
 typedef struct  s_stack
 {
@@ -26,18 +26,27 @@ typedef struct  s_stack
 
 
 // stack management
-int	    ft_atoi(const char *str);
+int	    ft_atoi(char *str);
+int	    ft_lstsize(t_stack *lst);
+int     check_sort(t_stack *a);
+t_stack	*ft_lstlast(t_stack *lst);
+t_stack *small_value(t_stack *node);
 void    creat_stack(t_stack **a, char **argv);
 void    append_node(t_stack **a, int nbr);
-t_list	*ft_lstlast(t_list *lst);
+
+
 
 // error management
 int     error_sytax(char *str);
+int     error_repetiton(t_stack *a, int nbr);
 void    error_free(t_stack **a, char  **argv);
 void    free_stack(t_stack **a);
 
+
 // main
-char	**ft_split(char const *s, char c);
+int     main(int argc, char **argv);
+char	**ft_split(char *s, char c);
+void    push_swap(t_stack **a, t_stack **b);
 
 
 #endif
