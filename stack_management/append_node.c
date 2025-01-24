@@ -17,7 +17,7 @@ void    append_node(t_stack **a, int nbr)
     t_stack *new_node;
     t_stack *last_node;
 
-    if (!a)
+    if (!a) // check that ???????
         return ;
     new_node = malloc(sizeof(t_stack));
     if (!new_node)

@@ -22,7 +22,7 @@ int main(int argc, char **argv)
         return (1);
     else if (argc == 2)
         argv = ft_split(argv[1], ' ');
-    creat_stack(&a, argv + 1);
+    creat_stack(&a, &argv);
     if (!check_sort(a))
     {
         if (ft_lstsize(a) == 2)
