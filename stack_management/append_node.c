@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:35:47 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/23 22:00:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/25 16:25:35 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void    append_node(t_stack **a, int nbr)
 {
     t_stack *new_node;
-    t_stack *last_node;
+   //  t_stack *last_node;
 
     if (!a) // check that ???????
         return ;
@@ -23,16 +23,18 @@ void    append_node(t_stack **a, int nbr)
     if (!new_node)
         return ;
     new_node->value = nbr;
-    new_node->next = NULL;
+    new_node->prev = NULL;
     if (*a == NULL)
     {
         *a = new_node;
-        new_node->prev= NULL;
+        new_node->next= NULL;
     }
     else
     {
-        last_node = ft_lstlast(*a);
-        last_node->next = new_node;
-        new_node->prev = last_node;
+      //   last_node = ft_lstlast(*a);
+      //   last_node->next = new_node;
+      //   new_node->prev = last_node;
+		new_node->next = *a;
+		*a = new_node;
     }
 }
