@@ -6,11 +6,11 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:56:27 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/24 18:02:53 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/26 20:29:07 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_stack	*ft_lstlast(t_stack *lst)
 {

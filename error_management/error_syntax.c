@@ -6,11 +6,11 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:59:10 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/23 22:00:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/26 20:30:21 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int error_sytax(char *str)
 {
@@ -22,7 +22,7 @@ int error_sytax(char *str)
         if (str[i] == '+' || str[i] == '-')
             return (1);
         if (str[i] <= '0' || str[i] >= '9')
-            return (1)
+            return (1);
         i++;
     }
     return (0);

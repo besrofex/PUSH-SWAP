@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 15:21:23 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/25 15:48:28 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/26 21:26:44 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,24 @@ static void	reverse_rotate(t_stack	**head)
 	*head = last_node;
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, bool checker)
 {
-	reverse_rotate(&a);
-	write(1,"rra\n",4);
+	reverse_rotate(a);
+	if (!checker)
+		write(1,"rra\n",4);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, bool checker)
 {
-	reverse_rotate(&b);
-	write(1,"rrb\n",4);
+	reverse_rotate(b);
+	if (!checker)
+		write(1,"rrb\n",4);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, bool checker)
 {
-	reverse_rotate(&a);
-	reverse_rotate(&b);
-	write(1,"rrr\n",4);
+	reverse_rotate(a);
+	reverse_rotate(b);
+	if (!checker)
+		write(1,"rrr\n",4);
 }

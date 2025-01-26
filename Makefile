@@ -2,8 +2,8 @@ CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
 
 NAME 	= push_swap
-SRC = 
-OBJ = $(SRC:.c=.o)
+SRCS = $(wildcard *.c) $(wildcard stack_management/*.c) $(wildcard error_management/*.c) $(wildcard push_swap_sort/*.c)
+OBJ = $(SRCS:.c=.o)
 
 all:$(NAME)
 

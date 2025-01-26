@@ -6,13 +6,13 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:13:13 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/23 22:00:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/26 20:32:28 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int error_repetiton(t_stack *a, int nbr)
+int error_repetition(t_stack *a, int nbr)
 {
     if (a == NULL)
         return (0);

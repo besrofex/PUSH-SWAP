@@ -1,46 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 16:48:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/25 22:00:00 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/26 20:29:56 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-// void hhh(t_stack **a, t_stack **b)
-// {
-// 	t_stack	*push_node;
-// 	t_stack	*last_node;
-	
-// 	while (*b)
-// 	{
-// 		*b = (*b)->next;
-// 		push_node = (*b)->prev; 
-// 		while (*a)
-// 		{
-// 			if (push_node->value > (*a)->value)
-// 			{}
-// 			else
-// 			{
-// 				// last_node = ft_lstlast(*a);
-// 				// last_node->next = push_node;
-// 				// push_node->prev = last_node;
-// 				append_node(&a,(*b)->value);
-// 				ra(&a);
-// 			}
-// 			*a = (*a)->next;
-// 		}
-// 		*b = (*b)->next;
-// 	}
-// }
-
-
-static void	set_curr_pos(t_stack *stack)
+void	set_curr_pos(t_stack *stack)
 {
 	int	centre;
 	int	i;
@@ -90,16 +62,47 @@ static void set_taregt_node(t_stack *a, t_stack *b)
 
 static void	set_price(t_stack *a, t_stack *b)
 {
-	
+	int	a_len;
+	int	b_len;
+
+	a_len = ft_lstsize(a);
+	b_len = ft_lstsize(b);
+	while (b)
+	{
+		b->push_price = b->curr_position;
+		if (!(b->above))
+			b->push_price = b_len - (b->curr_position);
+		if (b->target_node->above)
+			b->push_price += b->target_node->curr_position;
+		else
+			b->push_price += a_len - (b->target_node->curr_position);
+		b = b->next;
+	}
 }
 
-
-void	push_swap(t_stack	**a, t_stack	**b)
+static void	set_cheapest(t_stack *b)
 {
-	int	len_a;
+	long		best_value;
+	t_stack	*best_node;
 
-	len_a = ft_lstsize(*a);
-	while (len_a-- > 3)
-		pb(&b,&a);
-	Quick_sort(&a);
+	best_value =  LONG_MAX;
+	while (b)
+	{
+		if (b->push_price < best_value)
+		{
+			best_value = b->push_price;
+			best_node = b;
+		}
+		b = b->next;
+	}
+	best_node->cheapest = true;
+}
+
+void	init_nodes(t_stack *a, t_stack *b)
+{
+	set_curr_pos(a);
+	set_curr_pos(b);
+	set_taregt_node(a, b);
+	set_price(a, b);
+	set_cheapest(b);
 }

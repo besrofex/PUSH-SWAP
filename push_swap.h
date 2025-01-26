@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/25 21:57:55 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/26 21:30:03 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct  s_stack
 	 int					curr_position;
 	 int					push_price;
 	 bool					above;
+	 bool					cheapest;
     struct s_stack	*target_node;
     struct s_stack	*next;
     struct s_stack	*prev;
@@ -36,7 +37,6 @@ int	    ft_lstsize(t_stack *lst);
 t_stack	*ft_lstlast(t_stack *lst);
 t_stack *small_value(t_stack *node);
 void    creat_stack(t_stack **a, char **argv);
-void    append_node(t_stack **a, int nbr);
 
 // sort
 void	Quick_sort(t_stack **a);
@@ -44,7 +44,7 @@ int	check_sort(t_stack *a);
 
 // error management
 int     error_sytax(char *str);
-int     error_repetiton(t_stack *a, int nbr);
+int     error_repetition(t_stack *a, int nbr);
 void    error_free(t_stack **a, char  **argv);
 void    free_stack(t_stack **a);
 
@@ -54,20 +54,27 @@ char	**ft_split(char *s, char c);
 void	push_swap(t_stack **a, t_stack **b);
 
 // swap
-void  sa(t_stack **a);
-void  sb(t_stack **b);
-void  ss(t_stack **b, t_stack **a);
+void  sa(t_stack **a, bool checker);
+void  sb(t_stack **b, bool checker);
+void  ss(t_stack **b, t_stack **a, bool checker);
 
 // rotate
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
+void	ra(t_stack **a, bool checker);
+void	rb(t_stack **b, bool checker);
+void	rr(t_stack **a, t_stack **b, bool checker);
 
 // reverse rotate
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
+void	rra(t_stack **a, bool checker);
+void	rrb(t_stack **b, bool checker);
+void	rrr(t_stack **a, t_stack **b, bool checker);
 
 // push
+void	pa(t_stack **a, t_stack **b, bool checker);
+void	pb(t_stack **b, t_stack **a, bool checker);
+
+// push swap
+void	push_swap(t_stack	**a, t_stack **b);
+void	init_nodes(t_stack *a, t_stack *b);
+void	set_curr_pos(t_stack *stack);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:07:07 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/23 22:00:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/26 20:30:15 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void    free_stack(t_stack **a)
 {
@@ -22,7 +22,7 @@ void    free_stack(t_stack **a)
     {
         tmp = curr->next;
         free(curr);
-        curr = tmp
+        curr = tmp;
     }
     *a = NULL;
 }

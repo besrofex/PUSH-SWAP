@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:02:59 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/25 15:17:28 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/26 21:24:47 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,24 @@ static void	swap(t_stack **head)
 	(*head)->prev = NULL;
 }
 
-void    sa(t_stack **a)
+void    sa(t_stack **a, bool checker)
 {
    swap(a);
-	write(1,"sa\n",3);
+	if (!checker)
+		write(1,"sa\n",3);
 }
 
-void    sb(t_stack **b)
+void    sb(t_stack **b, bool checker)
 {
    swap(b);
-	write(1,"sb\n",3);
+	if (!checker)
+		write(1,"sb\n",3);
 }
 
-void    ss(t_stack **b, t_stack **a)
+void    ss(t_stack **b, t_stack **a, bool checker)
 {
 	swap(a);
    swap(b);
-	write(1,"ss\n",3);
+	if (!checker)
+		write(1,"ss\n",3);
 }
