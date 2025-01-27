@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 20:29:56 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/27 17:45:08 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static void set_taregt_node(t_stack *a, t_stack *b)
 	t_stack	*target_node;
 	long		best_value;
 	
-	curr_a = a;
 	while (b)
 	{
 		best_value = LONG_MAX;
+		curr_a = a;
 		while (curr_a)
 		{
 			if (curr_a->value > b->value && curr_a->value < best_value)
@@ -85,7 +85,9 @@ static void	set_cheapest(t_stack *b)
 	long		best_value;
 	t_stack	*best_node;
 
-	best_value =  LONG_MAX;
+	if (b == NULL)
+		return ;
+	best_value = LONG_MAX;
 	while (b)
 	{
 		if (b->push_price < best_value)

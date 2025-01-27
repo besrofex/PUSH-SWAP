@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:41:40 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 20:28:53 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:58:10 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,23 @@ static void    append_node(t_stack **a, int nbr)
     }
 }
 
-void    creat_stack(t_stack **a, char **argv)
+void    creat_stack(t_stack **a, char **argv, bool checker)
 {
     long    nbr;
     int     i;
 
-    i = 1;
+    i = 0;
+	 if (*argv == NULL)
+	 	return ;
     while (argv[i])
     {
         if (error_sytax(argv[i]))
-            error_free(a, argv);
+            error_free(a, argv, checker);
         nbr = ft_atoi(argv[i]);
         if (nbr < INT_MIN || nbr > INT_MAX)
-            error_free(a, argv);
+            error_free(a, argv, checker);
         if (error_repetition(*a, (int)nbr))
-            error_free(a, argv);
+            error_free(a, argv, checker);
         append_node(a, (int)nbr);
         i++;
     }

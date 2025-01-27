@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 15:21:23 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 21:26:44 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:13:35 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	reverse_rotate(t_stack	**head)
 {
 	t_stack	*last_node;
 
+	if (head == NULL || *head == NULL || (*head)->next == NULL)
+      return ;
 	last_node = ft_lstlast(*head);
 	last_node->next = *head;
 	(*head)->prev = last_node;

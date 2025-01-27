@@ -6,15 +6,15 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:37:08 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 21:30:54 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:58:48 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int main(int argc, char **argv)
 {
-	system("leaks a.out");
     t_stack    *a;
     t_stack    *b;
 
@@ -23,14 +23,12 @@ int main(int argc, char **argv)
         return (1);
     else if (argc == 2)
         argv = ft_split(argv[1], ' ');
-    creat_stack(&a, argv);
-    if (!check_sort(a))
-    {
-        if (ft_lstsize(a) == 2)
-            sa(&a, false);
-        else if (ft_lstsize(a) == 3)
-            Quick_sort(&a);
-        else
-            push_swap(&a, &b);
-    }
+    creat_stack(&a, argv, 2 == argc);
+	if (ft_lstsize(a) == 2 && !(check_sort(a)))
+		sa(&a, false);
+	else if (ft_lstsize(a) == 3)
+		Quick_sort(&a);
+	else if (ft_lstsize(a) > 3)
+		push_swap(&a, &b);
+	free_stack(&a);
 }

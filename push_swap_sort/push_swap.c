@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:48:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 21:29:34 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/27 18:14:48 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ static t_stack	*return_cheapest(t_stack *stack)
 		return (NULL);
 	while (stack)
 	{
-		if (!(stack->cheapest))
-		{
+		if (stack->cheapest)
 			return(stack);
-		}
 		stack = stack->next;
 	}
 	return (NULL);
@@ -68,6 +66,8 @@ static void	move_nodes(t_stack **a, t_stack **b)
 {
 	t_stack	*cheapest_node;
 
+	if (b == NULL || *b == NULL)
+		return ;
 	cheapest_node = return_cheapest(*b);
 	if (cheapest_node->above && cheapest_node->target_node->above)
 		rotate_both(a, b, cheapest_node);
@@ -75,7 +75,7 @@ static void	move_nodes(t_stack **a, t_stack **b)
 		reverse_rotate_both(a, b, cheapest_node);
 	finish_rotation(b, cheapest_node, 'b');
 	finish_rotation(a, cheapest_node->target_node, 'a');
-	pb(b, a, false);
+	pa(a, b, false);
 }
 
 
@@ -85,15 +85,8 @@ void	push_swap(t_stack	**a, t_stack **b)
 	t_stack	*small;
 
 	len_a = ft_lstsize(*a);
-	if (len_a-- > 3 && !check_sort(*a))
+	while (len_a-- > 3)
 		pb(b, a, false);
-	if (len_a-- > 3 && !check_sort(*a))
-		pb(b, a, false);
-	while (len_a-- > 3 && !check_sort(*a))
-	{
-		init_nodes(*b, *a);
-		move_nodes(b, a);
-	}
 	Quick_sort(a);
 	while (*b)
 	{

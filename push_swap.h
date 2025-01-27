@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 21:30:03 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/27 20:00:30 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	    ft_atoi(char *str);
 int	    ft_lstsize(t_stack *lst);
 t_stack	*ft_lstlast(t_stack *lst);
 t_stack *small_value(t_stack *node);
-void    creat_stack(t_stack **a, char **argv);
+void    creat_stack(t_stack **a, char **argv, bool checker);
 
 // sort
 void	Quick_sort(t_stack **a);
@@ -45,7 +45,7 @@ int	check_sort(t_stack *a);
 // error management
 int     error_sytax(char *str);
 int     error_repetition(t_stack *a, int nbr);
-void    error_free(t_stack **a, char  **argv);
+void    error_free(t_stack **a, char  **argv, bool checker);
 void    free_stack(t_stack **a);
 
 // main
@@ -76,5 +76,9 @@ void	pb(t_stack **b, t_stack **a, bool checker);
 void	push_swap(t_stack	**a, t_stack **b);
 void	init_nodes(t_stack *a, t_stack *b);
 void	set_curr_pos(t_stack *stack);
+
+
+// test 
+void	print_stack(t_stack *a);
 
 #endif

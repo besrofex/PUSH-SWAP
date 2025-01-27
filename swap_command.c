@@ -6,26 +6,28 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 12:02:59 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 21:24:47 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/27 12:12:29 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack **head)
+static void swap(t_stack **head)
 {
-	int	len;
+    t_stack *first;
+    t_stack *second;
 
-	len = ft_lstsize(*head);
-	if (len == 1 || head == NULL || *head == NULL)
-		return ;
-	*head = (*head)->next;
-	(*head)->prev->next = (*head)->next;
-	(*head)->prev->prev = (*head);
-	if ((*head)->next)
-		(*head)->next->prev = (*head)->prev;
-	(*head)->next = (*head)->prev;
-	(*head)->prev = NULL;
+    if (head == NULL || *head == NULL || (*head)->next == NULL)
+        return;
+    first = *head;
+    second = first->next;
+    first->next = second->next;
+    if (second->next != NULL)
+        second->next->prev = first;
+    second->prev = NULL;
+    second->next = first;
+    first->prev = second;
+    *head = second;
 }
 
 void    sa(t_stack **a, bool checker)

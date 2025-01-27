@@ -8,8 +8,8 @@ OBJ = $(SRCS:.c=.o)
 all:$(NAME)
 
 $(NAME) : $(OBJ)
-	ar rcs $@ $^
-
+	cc $(OBJ) -o $(NAME)
+	
 %.o : %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
