@@ -1,24 +1,23 @@
 CC = cc 
 NAME = checker
-CFLAGS = -Wall -Wextra -werror
-ARCHIVE = ../push_swap
+CFLAGS = -Wall -werror -Wextra
 
 SRCS = $(wildcard *.c)
-OBJS = $(SRCS = .c:.o)
+OBJS = $(SRCS:.c=.o)
 
-all : $(NAME)
+all:$(NAME)
+
+$(NAME) = $(OBJS)
+	$(CC) $^ -o $(NAME)
 
 %.o = %.c checker.h
-	$(CC) -c $(CFLAGS) $< -o $@
-
-$(NAME) = $(OBJS) $(ARCHIVE)
-	$(CC) $^ -o $(NAME)
+	$(CC) -c $(CFLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJS)
 
 fclean :
-	rm -F $(NAME)
+	rm -f $(NAME)
 
 re : clean all
 
