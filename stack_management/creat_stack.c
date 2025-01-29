@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:41:40 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/27 19:58:10 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/29 12:04:50 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    creat_stack(t_stack **a, char **argv, bool checker)
     long    nbr;
     int     i;
 
-    i = 0;
+    i = 1;
 	 if (*argv == NULL)
 	 	return ;
     while (argv[i])

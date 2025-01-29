@@ -6,11 +6,12 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/27 17:45:08 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/29 16:02:57 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 void	set_curr_pos(t_stack *stack)
 {

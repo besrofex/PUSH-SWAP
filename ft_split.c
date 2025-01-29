@@ -30,72 +30,54 @@ static int	count_words(char *s, char sep)
 	return (count);
 }
 
-static int	word_len(char *s, char sep)
+static char	*get_next_word(char *str, char c)
 {
 	int	i;
+	int	count;
+	int	len;
+	char	*next_str;
 
 	i = 0;
-	while (s[i] != '\0' && s[i] != sep)
-		i++;
-	return (i);
+	count = 0;
+	len = 0;
+	while (*str == c)
+		count++;
+	while ((str[count + len] != c) && str[count + len])
+		len++;
+	next_str= malloc(sizeof(char) *(len+ 1));
+	if (!next_str)
+		return (NULL);
+	while ((str[count] != c) && str[count])
+		next_str[i++] = str[count++];
+	next_str[i] = '\0';
+	return (next_str);
 }
 
-static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	src_len;
-	size_t	i;
-
-	src_len = 0;
-	while (src[src_len])
-		src_len++;
-	if (dstsize == 0)
-		return (src_len);
-	i = 0;
-	while (i < dstsize - 1 && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (src_len);
-}
-
-static char	**free_mem(char **c, int i)
-{
-	int	index;
-
-	index = 0;
-	while (index < i)
-	{
-		free(c[index]);
-		index++;
-	}
-	free(c);
-	return (NULL);
-}
-
-char	**ft_split(char *s, char c)
+char	**ft_split(char *str, char c)
 {
 	char	**arr;
+	int 	words_nbr;
 	int		i;
-	char	*str;
 
 	i = 0;
-	str = (char *)s;
-	arr = (char **)malloc(sizeof(char *) * (count_words(str, c) + 1));
+	words_nbr = count_words(str, c);
+	if (!words_nbr)
+		exit(1);
+	arr = malloc(sizeof(char *) * (words_nbr + 2));
 	if (!arr)
 		return (NULL);
-	while (i < count_words((char *)s, c))
+	while (0 <= words_nbr--)
 	{
-		while (*str == c)
-			str++;
-		arr[i] = (char *)malloc(sizeof(char) *(word_len(str, c) + 1));
-		if (!arr[i])
-			return (free_mem(arr, i));
-		ft_strlcpy(arr[i], str, (word_len(str, c) + 1));
-		str = str + word_len(str, c);
-		i++;
+		if (i == 0)
+		{
+			arr[i] = malloc(sizeof(char));
+			if (!arr)
+				return (NULL);
+			arr[i++] = '\0';
+			continue;
+		}
+		arr[i++] = get_next_word(str, c);
 	}
-	arr[i] = NULL;
+	arr[i] = '\0';
 	return (arr);
 }

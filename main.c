@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:37:08 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/28 14:29:04 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/29 12:09:26 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
         return (1);
     else if (argc == 2)
         argv = ft_split(argv[1], ' ');
-    creat_stack(&a, argv, 2 == argc);
+    creat_stack(&a, argv, true);
 	if (ft_lstsize(a) == 2 && !(check_sort(a)))
 		sa(&a, false);
 	else if (ft_lstsize(a) == 3)
