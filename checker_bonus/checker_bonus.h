@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 21:08:51 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/27 21:48:16 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/30 18:42:44 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 18:42:44 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42

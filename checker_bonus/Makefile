@@ -7,7 +7,7 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 
-$(NAME) : $(OBJ) checker.h
+$(NAME) : $(OBJ) checker_bonus.h
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 all: ${NAME}
