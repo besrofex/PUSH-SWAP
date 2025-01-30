@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:10:16 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 17:10:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:00:40 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ char	**ft_split(char *str, char c)
 			arr[i] = malloc(sizeof(char));
 			if (!arr)
 				return (NULL);
-			arr[i++] = '\0';
+			arr[i++] = NULL;
 			continue ;
 		}
 		arr[i++] = get_next_word(str, c);
 	}
-	arr[i] = '\0';
+	arr[i] = NULL;
 	return (arr);
 }

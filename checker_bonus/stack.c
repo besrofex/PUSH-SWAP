@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:09:58 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 17:10:49 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:02:11 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ void	creat_stack(t_stack **a, char **argv, bool checker)
 		append_node(a, (int)nbr);
 		i++;
 	}
-	if (checker)
-		free_matrix(argv);
 }
 
 t_stack	*ft_lstlast(t_stack *lst)
