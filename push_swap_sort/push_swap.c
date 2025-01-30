@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 16:48:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/29 20:37:42 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:17:41 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,29 @@ static t_stack	*return_cheapest(t_stack *stack)
 	return (NULL);
 }
 
-static void	finish_rotation(t_stack **stack, t_stack *node, char stack_name)
+static void	rotate_both(t_stack **a,
+						t_stack **b,
+						t_stack *cheapest_node)
+{
+	while (*a != cheapest_node->target_node
+		&& *b != cheapest_node)
+		rr(a, b, false);
+	set_curr_pos(*a);
+	set_curr_pos(*b);
+}
+
+static void	reverse_rotate_both(t_stack **a,
+								t_stack **b,
+								t_stack *cheapest_node)
+{
+	while (*a != cheapest_node->target_node
+		&& *b != cheapest_node)
+		rrr(a, b, false);
+	set_curr_pos(*a);
+	set_curr_pos(*b);
+}
+
+void	finish_rotation(t_stack **stack, t_stack *node, char stack_name)
 {
 	while (*stack != node)
 	{
@@ -51,6 +73,12 @@ static void	move_nodes(t_stack **a, t_stack **b)
 	t_stack	*cheapest_node;
 
 	cheapest_node = return_cheapest(*b);
+	if (cheapest_node->above
+		&& cheapest_node->target_node->above)
+		rotate_both(a, b, cheapest_node);
+	else if (!(cheapest_node->above)
+		&& !(cheapest_node->target_node->above))
+		reverse_rotate_both(a, b, cheapest_node);
 	finish_rotation(b, cheapest_node, 'b');
 	finish_rotation(a, cheapest_node->target_node, 'a');
 	pa(a, b, false);
@@ -62,8 +90,13 @@ void	push_swap(t_stack **a, t_stack **b)
 	t_stack	*small;
 
 	len_a = ft_lstsize(*a);
-	while (len_a-- > 3)
-		pb(b, a, false);
+	if (len_a == 5)
+		handle_five(a, b);
+	else
+	{
+		while (len_a-- > 3)
+			pb(b, a, false);
+	}
 	Quick_sort(a);
 	while (*b)
 	{

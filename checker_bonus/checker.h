@@ -69,6 +69,7 @@ void    free_stack(t_stack **a);
 int error_sytax(char *str);
 int error_repetition(t_stack *a, int nbr);
 void    error_free(t_stack **a, char  **argv, bool checker);
+void	free_matrix(char **str);
 
 int	ft_atoi(char *str);
 char	**ft_split(char *str, char c);

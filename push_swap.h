@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 14:22:28 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:16:19 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	    ft_lstsize(t_stack *lst);
 t_stack	*ft_lstlast(t_stack *lst);
 t_stack *small_value(t_stack *node);
 void    creat_stack(t_stack **a, char **argv, bool checker);
+void	handle_five(t_stack **a, t_stack **b);
 
 // sort
 void	Quick_sort(t_stack **a);
@@ -47,6 +48,7 @@ int     error_sytax(char *str);
 int     error_repetition(t_stack *a, int nbr);
 void    error_free(t_stack **a, char  **argv, bool checker);
 void    free_stack(t_stack **a);
+void	free_matrix(char	**str);
 
 // main
 int	main(int argc, char **argv);
@@ -76,6 +78,7 @@ void	pb(t_stack **b, t_stack **a, bool checker);
 void	push_swap(t_stack	**a, t_stack **b);
 void	init_nodes(t_stack *a, t_stack *b);
 void	set_curr_pos(t_stack *stack);
+void	finish_rotation(t_stack **stack, t_stack *node, char stack_name);
 
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:14:34 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 13:15:53 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:23:27 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	free_matrix(char	**str)
+void	free_matrix(char **str)
 {
 	int	i;
 

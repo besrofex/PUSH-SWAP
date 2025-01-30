@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:41:40 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/29 12:04:50 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:19:44 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void    append_node(t_stack **a, int nbr)
     t_stack *new_node;
     t_stack *last_node;
 
-    if (!a) // check that ???????
+    if (!a)
         return ;
     new_node = malloc(sizeof(t_stack));
     if (!new_node)
@@ -43,8 +43,6 @@ void    creat_stack(t_stack **a, char **argv, bool checker)
     int     i;
 
     i = 1;
-	 if (*argv == NULL)
-	 	return ;
     while (argv[i])
     {
         if (error_sytax(argv[i]))

@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:28:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/27 19:41:50 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:15:11 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,14 @@ void	Quick_sort(t_stack **a)
 		rra(a, false);
 	if ((*a)->value > (*a)->next->value)
 		sa(a, false);
+}
+
+void	handle_five(t_stack **a, t_stack **b)
+{
+	while (ft_lstsize(*a) > 3)
+	{
+		init_nodes(*a, *b);
+		finish_rotation(a, small_value(*a), 'a');
+		pb(b, a, false);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 14:26:22 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:13:13 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	set_curr_pos(t_stack *stack)
 	while (stack)
 	{
 		stack->curr_position = i;
-		if (stack->curr_position <= centre)
+		if (i <= centre)
 			stack->above = true;
 		else
 			stack->above = false;

@@ -6,13 +6,13 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:04:04 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/27 19:56:44 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:16:13 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	free_matrix(char	**str)
+void	free_matrix(char	**str)
 {
 	int	i;
 

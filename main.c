@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:37:08 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 14:22:49 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 15:03:54 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int argc, char **argv)
     t_stack    *b;
 
     a = NULL;
+    b = NULL;
     if (argc == 1 || (argc == 2 && !argv[1][0]))
         return (1);
     else if (argc == 2)
