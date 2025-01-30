@@ -1,49 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_command.c                                   :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:18:34 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:58:34 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/30 17:24:13 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 17:24:15 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-static void	rotate(t_stack **head)
+static void	swap(t_stack **head)
 {
-	t_stack	*last_node;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return ;
-	last_node = ft_lstlast(*head);
-	*head = (*head)->next;
-	last_node->next = (*head)->prev;
-	(*head)->prev->prev = last_node;
-	(*head)->prev->next = NULL;
-	(*head)->prev = NULL;
+	first = *head;
+	second = first->next;
+	first->next = second->next;
+	if (second->next != NULL)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	*head = second;
 }
 
-void	ra(t_stack **a, bool checker)
+void	sa(t_stack **a, bool checker)
 {
-	rotate(a);
+	swap(a);
 	if (!checker)
-		write(1, "ra\n", 3);
+		write(1, "sa\n", 3);
 }
 
-void	rb(t_stack **b, bool checker)
+void	sb(t_stack **b, bool checker)
 {
-	rotate(b);
+	swap(b);
 	if (!checker)
-		write(1, "rb\n", 3);
+		write(1, "sb\n", 3);
 }
 
-void	rr(t_stack **a, t_stack **b, bool checker)
+void	ss(t_stack **b, t_stack **a, bool checker)
 {
-	rotate(a);
-	rotate(b);
+	swap(a);
+	swap(b);
 	if (!checker)
-		write(1, "rra\n", 4);
+		write(1, "ss\n", 3);
 }

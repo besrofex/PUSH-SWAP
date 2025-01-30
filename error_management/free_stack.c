@@ -6,23 +6,23 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:07:07 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/26 20:30:15 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:37:27 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    free_stack(t_stack **a)
+void	free_stack(t_stack **a)
 {
-    t_stack *curr;
-    t_stack *tmp;
+	t_stack	*curr;
+	t_stack	*tmp;
 
-    curr = *a;
-    while (curr)
-    {
-        tmp = curr->next;
-        free(curr);
-        curr = tmp;
-    }
-    *a = NULL;
+	curr = *a;
+	while (curr)
+	{
+		tmp = curr->next;
+		free(curr);
+		curr = tmp;
+	}
+	*a = NULL;
 }

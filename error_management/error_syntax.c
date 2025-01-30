@@ -6,24 +6,24 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:59:10 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/27 12:07:24 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:36:47 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int error_sytax(char *str)
+int	error_sytax(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == '+' || str[i] == '-')
-            return (1);
-        if (str[i] < '0' || str[i] > '9')
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '+' || str[i] == '-')
+			return (1);
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
 }

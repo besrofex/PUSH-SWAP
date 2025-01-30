@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 15:13:13 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:44:16 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	set_curr_pos(t_stack *stack)
 	}
 }
 
-static void set_taregt_node(t_stack *a, t_stack *b)
+static void	set_taregt_node(t_stack *a, t_stack *b)
 {
 	t_stack	*curr_a;
 	t_stack	*target_node;
-	long		best_value;
-	
+	long	best_value;
+
 	while (b)
 	{
 		best_value = LONG_MAX;
@@ -57,7 +57,7 @@ static void set_taregt_node(t_stack *a, t_stack *b)
 		else
 			b->target_node = target_node;
 		b = b->next;
-	}	
+	}
 }
 
 static void	set_price(t_stack *a, t_stack *b)
@@ -83,7 +83,7 @@ static void	set_price(t_stack *a, t_stack *b)
 static void	set_cheapest(t_stack *b)
 {
 	long		best_value;
-	t_stack	*best_node;
+	t_stack		*best_node;
 
 	if (b == NULL)
 		return ;

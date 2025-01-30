@@ -32,9 +32,9 @@ static int	count_words(char *s, char sep)
 
 static char	*get_next_word(char *str, char c)
 {
-	int	i;
-	int	count;
-	int	len;
+	int		i;
+	int		count;
+	int		len;
 	char	*next_str;
 
 	i = 0;
@@ -44,7 +44,7 @@ static char	*get_next_word(char *str, char c)
 		count++;
 	while ((str[count + len] != c) && str[count + len])
 		len++;
-	next_str= malloc(sizeof(char) *(len+ 1));
+	next_str = malloc(sizeof(char) * (len + 1));
 	if (!next_str)
 		return (NULL);
 	while ((str[count] != c) && str[count])
@@ -56,7 +56,7 @@ static char	*get_next_word(char *str, char c)
 char	**ft_split(char *str, char c)
 {
 	char	**arr;
-	int 	words_nbr;
+	int		words_nbr;
 	int		i;
 
 	i = 0;
@@ -73,11 +73,11 @@ char	**ft_split(char *str, char c)
 			arr[i] = malloc(sizeof(char));
 			if (!arr)
 				return (NULL);
-			arr[i++] = '\0';
-			continue;
+			arr[i++] = NULL;
+			continue ;
 		}
 		arr[i++] = get_next_word(str, c);
 	}
-	arr[i] = '\0';
+	arr[i] = NULL;
 	return (arr);
 }

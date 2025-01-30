@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:14:34 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 15:23:27 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 17:16:27 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,55 +26,55 @@ void	free_matrix(char **str)
 	}
 }
 
-void    error_free(t_stack **a, char  **argv, bool checker)
+void	error_free(t_stack **a, char **argv, bool checker)
 {
-    free_stack(a);
-	 if (checker)
-	 	free_matrix(argv);
-    write(2,"Error\n",6);
-    exit(1);
+	free_stack(a);
+	if (checker)
+		free_matrix(argv);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-int error_repetition(t_stack *a, int nbr)
+int	error_repetition(t_stack *a, int nbr)
 {
-    if (a == NULL)
-        return (0);
-    while (a)
-    {
-        if (a->value == nbr)
-            return (1);
-        a = a->next;
-    }
-    return (0);
+	if (a == NULL)
+		return (0);
+	while (a)
+	{
+		if (a->value == nbr)
+			return (1);
+		a = a->next;
+	}
+	return (0);
 }
 
-int error_sytax(char *str)
+int	error_sytax(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == '+' || str[i] == '-')
-            return (1);
-        if (str[i] < '0' || str[i] > '9')
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '+' || str[i] == '-')
+			return (1);
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-void    free_stack(t_stack **a)
+void	free_stack(t_stack **a)
 {
-    t_stack *curr;
-    t_stack *tmp;
+	t_stack	*curr;
+	t_stack	*tmp;
 
-    curr = *a;
-    while (curr)
-    {
-        tmp = curr->next;
-        free(curr);
-        curr = tmp;
-    }
-    *a = NULL;
+	curr = *a;
+	while (curr)
+	{
+		tmp = curr->next;
+		free(curr);
+		curr = tmp;
+	}
+	*a = NULL;
 }
