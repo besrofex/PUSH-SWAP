@@ -18,7 +18,7 @@ bonus :$(NAME_BONUS)
 
 $(NAME_BONUS) : $(OBJ_BONUS)
 	make all -C checker_bonus
-	$(CC) $(CFLAGS) ./checker_bonus/checker.a -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) ./checker_bonus/checker -o $(NAME_BONUS)
 
 clean :
 	make clean -C checker_bonus

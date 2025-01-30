@@ -1,6 +1,6 @@
 SRCS = $(wildcard *.c)
 OBJS = ${SRCS:.c=.o}
-NAME = checker.a
+NAME = checker
 LIBC = ar -r
 CC = cc
 RM = rm -f
