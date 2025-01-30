@@ -12,9 +12,6 @@ OBJ_BONUS = $(SRCS_BONUS:.c=.o)
 
 $(NAME) : $(OBJ) push_swap.h
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
-	
-# %.o : %.c 
-# 	$(CC) $(CFLAGS) -c $< -o $@
 
 all:$(NAME)
 bonus :$(NAME_BONUS)
@@ -22,10 +19,6 @@ bonus :$(NAME_BONUS)
 $(NAME_BONUS) : $(OBJ_BONUS)
 	make all -C checker_bonus
 	$(CC) $(CFLAGS) ./checker_bonus/checker.a -o $(NAME_BONUS)
-	
-# %.o : %.c checker.h
-# 	$(CC) $(CFLAGS) -c $< -o $@
-
 
 clean :
 	make clean -C checker_bonus
