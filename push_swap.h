@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/27 20:00:30 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/01/30 14:22:28 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,5 @@ void	push_swap(t_stack	**a, t_stack **b);
 void	init_nodes(t_stack *a, t_stack *b);
 void	set_curr_pos(t_stack *stack);
 
-
-// test 
-void	print_stack(t_stack *a);
 
 #endif

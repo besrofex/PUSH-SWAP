@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_main.c                                       :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 21:14:35 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/29 21:14:35 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/30 14:24:17 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 14:24:17 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "checker.h"
 
@@ -61,6 +60,19 @@ static void parse_command(t_stack **a, t_stack **b, char *comand)
         rrr(a,b,true);
     else
         error(a, b);
+}
+
+static int check_sort(t_stack *a)
+{
+	if (a == NULL)
+		return (1);
+    while(a->next)
+    {
+        if  (a->value < a->next->value)
+            return (1);
+        a = a->next;
+    }
+    return (0);
 }
 
 int main(int argc, char **argv)
