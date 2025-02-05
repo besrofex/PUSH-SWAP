@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	check_sort(t_stack *a)
 {
@@ -25,45 +25,64 @@ int	check_sort(t_stack *a)
 	return (0);
 }
 
-static t_stack	*find_highest(t_stack *head)
+void	sort_2(t_stack **a)
 {
-	int		hightest;
-	t_stack	*hight_node;
-
-	if (head == NULL)
-		return (NULL);
-	hightest = INT_MIN;
-	while (head)
-	{
-		if (head->value > hightest)
-		{
-			hightest = head->value;
-			hight_node = head;
-		}
-		head = head->next;
-	}
-	return (hight_node);
+	if ((*a)->value > (*a)->next->value)
+		ra(a);
 }
 
-void	quick_sort(t_stack **a)
+void	sort_3(t_stack **a)
 {
 	t_stack	*max;
 
 	max = find_highest(*a);
 	if (*a == max)
-		ra(a, false);
+		ra(a);
 	else if ((*a)->next == max)
-		rra(a, false);
+		rra(a);
 	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
+		sa(a);
 }
 
-void	handle_five(t_stack **a, t_stack **b)
+void	sort_4(t_stack **a, t_stack **b)
 {
-	while (ft_lstsize(*a) > 3)
+	t_stack	*min;
+	t_stack	*tmp;
+
+	min = small_value(*a);
+	tmp = (*a)->next;
+	if (tmp == min)
+		ra(a);
+	else if (tmp->next == min)
 	{
-		init_nodes(*a, *b);
-		finish_rotation(a, small_value(*a), 'a');
-		pb(b, a, false);
+		rra(a);
+		rra(a);
 	}
+	else
+		rra(a);
+	pb(b, a);
+	sort_3(a);
+	pa(a, b);
+}
+
+void	sort_5(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+	t_stack	*min;
+	int i;
+
+	min = small_value(*a);
+	tmp = (*a)->next;
+	i = 5;
+	while (i > 0)
+	{
+		if (*a != min);
+		{
+			ra(a);
+			i--;
+		}
+	}
+	pb(b, a);
+	sort_4(a, b);
+	pa(a, b);
 }

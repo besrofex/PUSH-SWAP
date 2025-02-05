@@ -1,0 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 17:54:46 by ylabser          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+# include <stdbool.h>
+
+typedef struct s_stack
+{
+	int				value;
+	int				curr_position;
+	struct s_stack	*next;
+}					t_stack;
+
+// stack management
+void	creat_stack(t_stack **a, char *str);
+long			ft_atoi(char *str);
+int			ft_lstsize(t_stack *lst);
+t_stack		*ft_lstlast(t_stack *lst);
+t_stack		*small_value(t_stack *node);
+t_stack	*find_highest(t_stack *head);
+
+// error management
+int			error_sytax(char *str);
+int			error_repetition(t_stack *a, int nbr);
+void	error_free(t_stack **a, char *str);
+void		free_stack(t_stack **a);
+void		free_matrix(char	**str);
+
+// main
+int			main(int argc, char **argv);
+
+// swap
+void		sa(t_stack **a);
+void		sb(t_stack **b);
+void		ss(t_stack **b, t_stack **a);
+
+// rotate
+void		ra(t_stack **a);
+void		rb(t_stack **b);
+void		rr(t_stack **a, t_stack **b);
+
+// reverse rotate
+void		rra(t_stack **a);
+void		rrb(t_stack **b);
+void		rrr(t_stack **a, t_stack **b);
+
+// push
+void		pa(t_stack **a, t_stack **b);
+void		pb(t_stack **b, t_stack **a);
+
+// sort
+void	sort(t_stack **a, t_stack **b);
+void	sort_2(t_stack **a);
+void	sort_3(t_stack **a);
+void	sort_4(t_stack **a, t_stack **b);
+void	sort_5(t_stack **a, t_stack **b);
+void	move_to_b(t_stack **a, t_stack **b, int d);
+void	move_to_a(t_stack **a, t_stack **b);
+int			check_sort(t_stack *a);
+
+// parsing
+void  parse(t_stack **a, char **av, int ac);
+char	*ft_strjoin(char const *s1, char const *s2);
+char		**ft_split(char *s, char c);
+
+// str utils
+int   is_empty(char *str);
+int   ft_strlen(char *str);
+
+#endif

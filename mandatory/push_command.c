@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_free.c                                       :+:      :+:    :+:   */
+/*   push_command.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 21:04:04 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:43:08 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/25 16:38:30 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 16:04:48 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	free_matrix(char	**str)
+static void	push(t_stack **a, t_stack **b)
 {
-	int	i;
+	t_stack	*tmp;
 
-	if (str == NULL || *str == NULL)
+	if (!a || !(*b))
 		return ;
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
+	tmp = (*b)->next;
+	(*b)->next = *a;
+	*a = *b;
+	*b = tmp;
 }
 
-void	error_free(t_stack **a, char **argv, bool checker)
+void	pa(t_stack **a, t_stack **b)
 {
-	free_stack(a);
-	if (checker)
-		free_matrix(argv);
-	write(2, "Error\n", 6);
-	exit(1);
+	push(a, b);
+	write(1, "pa\n", 3);
+}
+
+void	pb(t_stack **b, t_stack **a)
+{
+	push(b, a);
+	write(1, "pb\n", 3);
 }

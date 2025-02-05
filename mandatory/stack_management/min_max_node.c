@@ -31,3 +31,23 @@ t_stack	*small_value(t_stack *node)
 	}
 	return (small);
 }
+
+t_stack	*find_highest(t_stack *head)
+{
+	int		hightest;
+	t_stack	*hight_node;
+
+	if (head == NULL)
+		return (NULL);
+	hightest = INT_MIN;
+	while (head)
+	{
+		if (head->value > hightest)
+		{
+			hightest = head->value;
+			hight_node = head;
+		}
+		head = head->next;
+	}
+	return (hight_node);
+}

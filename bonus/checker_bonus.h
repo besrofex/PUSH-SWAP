@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 17:54:46 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/30 18:42:44 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 18:42:44 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <stdlib.h>
-# include <unistd.h>
 # include <limits.h>
+# include <unistd.h>
 # include <stdbool.h>
 
 typedef struct s_stack
@@ -30,29 +34,16 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-// stack management
-int			ft_atoi(char *str);
+char		*get_next_line(int fd);
+char		*ft_strjoin(char *s1, char *s2, int size);
+size_t		ft_strlen(char *str);
+char		*ft_strdup(char *s);
+int			found_newline(char	*str);
+char		*ft_init(char *str);
+int			main(int argc, char **argv);
+void		creat_stack(t_stack **a, char **argv, bool checker);
 int			ft_lstsize(t_stack *lst);
 t_stack		*ft_lstlast(t_stack *lst);
-t_stack		*small_value(t_stack *node);
-void		creat_stack(t_stack **a, char **argv, bool checker);
-void		handle_five(t_stack **a, t_stack **b);
-
-// sort
-void		quick_sort(t_stack **a);
-int			check_sort(t_stack *a);
-
-// error management
-int			error_sytax(char *str);
-int			error_repetition(t_stack *a, int nbr);
-void		error_free(t_stack **a, char **argv, bool checker);
-void		free_stack(t_stack **a);
-void		free_matrix(char	**str);
-
-// main
-int			main(int argc, char **argv);
-char		**ft_split(char *s, char c);
-void		push_swap(t_stack **a, t_stack **b);
 
 // swap
 void		sa(t_stack **a, bool checker);
@@ -73,11 +64,13 @@ void		rrr(t_stack **a, t_stack **b, bool checker);
 void		pa(t_stack **a, t_stack **b, bool checker);
 void		pb(t_stack **b, t_stack **a, bool checker);
 
-// push swap
-void		push_swap(t_stack	**a, t_stack **b);
-void		init_nodes(t_stack *a, t_stack *b);
-void		set_curr_pos(t_stack *stack);
-void		finish_rotation(t_stack **stack, t_stack *node, char stack_name);
-void		move_nodes(t_stack **a, t_stack **b);
+// error
+void		free_stack(t_stack **a);
+int			error_sytax(char *str);
+int			error_repetition(t_stack *a, int nbr);
+void		error_free(t_stack **a, char **argv, bool checker);
+void		free_matrix(char **str);
+int			ft_atoi(char *str);
+char		**ft_split(char *str, char c);
 
 #endif

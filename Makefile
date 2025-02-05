@@ -1,35 +1,36 @@
 CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
+RM = rm -f
 
 NAME 	= push_swap
 NAME_BONUS = checker
-SRCS = $(wildcard *.c) $(wildcard stack_management/*.c) $(wildcard error_management/*.c) $(wildcard push_swap_sort/*.c)
-SRCS_BONUS = $(wildcard checker_bonus/*.c)
+
+SRCS = $(wildcard mandatory/*.c) $(wildcard mandatory/stack_management/*.c) $(wildcard mandatory/error_management/*.c) $(wildcard mandatory/push_swap_sort/*.c) $(wildcard mandatory/parsing/*.c)
+SRCS_BONUS = $(wildcard bonus/*.c)
 OBJ = $(SRCS:.c=.o)
 OBJ_BONUS = $(SRCS_BONUS:.c=.o)
 
+mandatory/%.o: mandatory/%.c mandatory/push_swap.h
+	$(CC) $(CFLAGS) -c $< -o $@
+bonus/%.o: bonus/%.c bonus/checker_bonus.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
+all : $(NAME)
 
-$(NAME) : $(OBJ) push_swap.h
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+bonus : $(BONUS)
 
-all:$(NAME)
-bonus :$(NAME_BONUS)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-$(NAME_BONUS) : $(OBJ_BONUS)
-	make all -C checker_bonus
-	$(CC) $(CFLAGS) ./checker_bonus/checker -o $(NAME_BONUS)
+$(BONUS): $(OBJB)
+	$(CC) $(OBJB) -o $(BONUS)
 
 clean :
-	make clean -C checker_bonus
-	rm -f $(OBJ)
-	rm -f $(OBJ_BONUS)
+	$(RM) $(OBJ) $(OBJB)
 
 fclean : clean
-	make fclean -C checker_bonus
-	rm -f $(NAME)
-	rm -f $(NAME_BONUS)
+	$(RM) $(NAME) $(BONUS)
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY: clean

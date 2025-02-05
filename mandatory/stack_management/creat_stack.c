@@ -12,47 +12,51 @@
 
 #include "../push_swap.h"
 
+static void	index(t_stack *a, t_stack *b)
+{
+	if (a->curr_position > b->curr_position)
+		a->curr_position++;
+	else
+		b->curr_position++;
+}
+
 static void	append_node(t_stack **a, int nbr)
 {
 	t_stack	*new_node;
-	t_stack	*last_node;
+	t_stack	*tmp;
 
-	if (!a)
-		return ;
+	tmp = *a;
 	new_node = malloc(sizeof(t_stack));
 	if (!new_node)
 		return ;
 	new_node->value = nbr;
 	new_node->next = NULL;
-	if (*a == NULL)
+	if (tmp == NULL)
+		tmp = new_node;
+	while (tmp && tmp->next)
 	{
-		new_node->prev = NULL;
-		*a = new_node;
+		index(tmp, new_node);
+		tmp = tmp->next;
 	}
-	else
-	{
-		last_node = ft_lstlast(*a);
-		last_node->next = new_node;
-		new_node->prev = last_node;
-	}
+	index(tmp, new_node);
+	tmp->next = new_node;
 }
 
-void	creat_stack(t_stack **a, char **argv, bool checker)
+void	creat_stack(t_stack **a, char *str)
 {
 	long	nbr;
 	int		i;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (str[i])
 	{
-		if (error_sytax(argv[i]))
-			error_free(a, argv, checker);
-		nbr = ft_atoi(argv[i]);
-		if (nbr < INT_MIN || nbr > INT_MAX)
-			error_free(a, argv, checker);
-		if (error_repetition(*a, (int)nbr))
-			error_free(a, argv, checker);
-		append_node(a, (int)nbr);
+		if (!(error_sytax(str[i])))
+			error_free(a, str);
+		if (ft_atoi(str[i]) < INT_MIN || ft_atoi(str[i]) > INT_MAX)
+			error_free(a, str);
+		if (error_repetition(*a, ft_atoi(str[i])))
+			error_free(a, str);
+		append_node(a, (int)ft_atoi(str[i]));
 		i++;
 	}
 }

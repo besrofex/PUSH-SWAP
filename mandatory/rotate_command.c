@@ -14,36 +14,33 @@
 
 static void	rotate(t_stack **head)
 {
-	t_stack	*last_node;
+	t_stack	*tmp;
+	t_stack	*last;
 
-	if (head == NULL || *head == NULL || (*head)->next == NULL)
+	if (!head || !(*head) || !(*head)->next)
 		return ;
-	last_node = ft_lstlast(*head);
-	*head = (*head)->next;
-	last_node->next = (*head)->prev;
-	(*head)->prev->prev = last_node;
-	(*head)->prev->next = NULL;
-	(*head)->prev = NULL;
+	last = ft_lstlast(*head);
+	tmp = (*head)->next;
+	(*head)->next = NULL;
+	last->next = *head;
+	*head = tmp;
 }
 
-void	ra(t_stack **a, bool checker)
+void	ra(t_stack **a)
 {
 	rotate(a);
-	if (!checker)
-		write(1, "ra\n", 3);
+	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **b, bool checker)
+void	rb(t_stack **b)
 {
 	rotate(b);
-	if (!checker)
-		write(1, "rb\n", 3);
+	write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **a, t_stack **b, bool checker)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
-	if (!checker)
-		write(1, "rra\n", 4);
+	write(1, "rra\n", 4);
 }

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_repetition.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 21:13:13 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:35:58 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/22 20:37:08 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 17:54:52 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	error_repetition(t_stack *a, int nbr)
+int	main(int argc, char **argv)
 {
-	if (a == NULL)
-		return (0);
-	while (a)
+	t_stack	*a;
+	t_stack	*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc > 1)
 	{
-		if (a->value == nbr)
-			return (1);
-		a = a->next;
+		parse(&a, argv, argc);
+		creat_stack(&a, argv);
+		sort(&a, &b);
+		free_stack(&a);
 	}
 	return (0);
 }
