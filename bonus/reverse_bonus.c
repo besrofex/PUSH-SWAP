@@ -26,24 +26,18 @@ static void	reverse_rotate(t_stack **head)
 	*head = last_node;
 }
 
-void	rra(t_stack **a, bool checker)
+void	rra(t_stack **a)
 {
 	reverse_rotate(a);
-	if (!checker)
-		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack **b, bool checker)
+void	rrb(t_stack **b)
 {
 	reverse_rotate(b);
-	if (!checker)
-		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a, t_stack **b, bool checker)
+void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	if (!checker)
-		write(1, "rrr\n", 4);
 }

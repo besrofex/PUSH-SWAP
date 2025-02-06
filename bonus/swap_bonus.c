@@ -30,24 +30,18 @@ static void	swap(t_stack **head)
 	*head = second;
 }
 
-void	sa(t_stack **a, bool checker)
+void	sa(t_stack **a)
 {
 	swap(a);
-	if (!checker)
-		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack **b, bool checker)
+void	sb(t_stack **b)
 {
 	swap(b);
-	if (!checker)
-		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack **b, t_stack **a, bool checker)
+void	ss(t_stack **b, t_stack **a)
 {
 	swap(a);
 	swap(b);
-	if (!checker)
-		write(1, "ss\n", 3);
 }

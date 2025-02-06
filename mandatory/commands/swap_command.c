@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_command.c                                     :+:      :+:    :+:   */
+/*   swap_command.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 16:38:30 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:04:48 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/25 12:02:59 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 16:57:04 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	push(t_stack **a, t_stack **b)
+static void	swap(t_stack **head)
 {
-	t_stack	*tmp;
+	int	tmp;
 
-	if (!a || !(*b))
+	if (!head || !(*head)->next)
 		return ;
-	tmp = (*b)->next;
-	(*b)->next = *a;
-	*a = *b;
-	*b = tmp;
+	tmp = (*head)->value;
+	(*head)->value = (*head)->next->value;
+	(*head)->next->value = tmp;
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	sa(t_stack **a)
 {
-	push(a, b);
-	write(1, "pa\n", 3);
+	swap(a);
+	write(1, "sa\n", 3);
 }
 
-void	pb(t_stack **b, t_stack **a)
+void	sb(t_stack **b)
 {
-	push(b, a);
-	write(1, "pb\n", 3);
+	swap(b);
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_stack **b, t_stack **a)
+{
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 }

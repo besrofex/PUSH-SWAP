@@ -12,25 +12,9 @@
 
 #include "checker_bonus.h"
 
-void	free_matrix(char **str)
-{
-	int	i;
-
-	if (str == NULL || *str == NULL)
-		return ;
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-}
-
-void	error_free(t_stack **a, char **argv, bool checker)
+void	error_free(t_stack **a, char **argvr)
 {
 	free_stack(a);
-	if (checker)
-		free_matrix(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }

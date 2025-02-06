@@ -26,24 +26,18 @@ static void	rotate(t_stack **head)
 	(*head)->prev = NULL;
 }
 
-void	ra(t_stack **a, bool checker)
+void	ra(t_stack **a)
 {
 	rotate(a);
-	if (!checker)
-		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **b, bool checker)
+void	rb(t_stack **b)
 {
 	rotate(b);
-	if (!checker)
-		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **a, t_stack **b, bool checker)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
-	if (!checker)
-		write(1, "rra\n", 4);
 }

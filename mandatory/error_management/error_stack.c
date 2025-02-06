@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_command.c                                     :+:      :+:    :+:   */
+/*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 12:02:59 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:57:04 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/23 21:04:04 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 16:43:08 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	swap(t_stack **head)
+void	error_free(t_stack **a, char *str)
 {
-	int	tmp;
-
-	if (!head || !(*head)->next)
-		return ;
-	tmp = (*head)->value;
-	(*head)->value = (*head)->next->value;
-	(*head)->next->value = tmp;
+	free_stack(a);
+	free(str);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-void	sa(t_stack **a)
+void	free_stack(t_stack **a)
 {
-	swap(a);
-	write(1, "sa\n", 3);
-}
+	t_stack	*curr;
+	t_stack	*tmp;
 
-void	sb(t_stack **b)
-{
-	swap(b);
-	write(1, "sb\n", 3);
-}
-
-void	ss(t_stack **b, t_stack **a)
-{
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
+	curr = *a;
+	while (curr)
+	{
+		tmp = curr->next;
+		free(curr);
+		curr = tmp;
+	}
+	*a = NULL;
 }

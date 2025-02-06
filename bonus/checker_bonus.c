@@ -37,27 +37,27 @@ static void	error(t_stack **a, t_stack **b)
 static void	parse_command(t_stack **a, t_stack **b, char *comand)
 {
 	if (!ft_strcmp(comand, "pa\n"))
-		pa(a, b, true);
+		pa(a, b);
 	else if (!ft_strcmp(comand, "pb\n"))
-		pb(b, a, true);
+		pb(b, a);
 	else if (!ft_strcmp(comand, "sa\n"))
-		sa(a, true);
+		sa(a);
 	else if (!ft_strcmp(comand, "sb\n"))
-		sb(b, true);
+		sb(b);
 	else if (!ft_strcmp(comand, "ss\n"))
-		ss(a, b, true);
+		ss(a, b);
 	else if (!ft_strcmp(comand, "ra\n"))
-		ra(a, true);
+		ra(a);
 	else if (!ft_strcmp(comand, "rb\n"))
-		rb(b, true);
+		rb(b);
 	else if (!ft_strcmp(comand, "rr\n"))
-		rr(a, b, true);
+		rr(a, b);
 	else if (!ft_strcmp(comand, "rra\n"))
-		rra(a, true);
+		rra(a);
 	else if (!ft_strcmp(comand, "rrb\n"))
-		rrb(b, true);
+		rrb(b);
 	else if (!ft_strcmp(comand, "rrr\n"))
-		rrr(a, b, true);
+		rrr(a, b);
 	else
 		error(a, b);
 }
@@ -88,7 +88,7 @@ int	main(int argc, char **argv)
 		return (0);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	creat_stack(&a, argv, true);
+	creat_stack(&a, argv);
 	len = ft_lstsize(a);
 	next_ligne = get_next_line(STDIN_FILENO);
 	while (next_ligne)

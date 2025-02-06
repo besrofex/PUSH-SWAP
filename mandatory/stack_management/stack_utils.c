@@ -1,16 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   small_value.c                                      :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 19:13:59 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:30:00 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/23 21:56:27 by ylabser           #+#    #+#             */
+/*   Updated: 2025/01/30 16:28:55 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+t_stack	*ft_lstlast(t_stack *lst)
+{
+	t_stack	*current;
+
+	if (lst == NULL)
+		return (NULL);
+	current = lst;
+	while (current->next != NULL)
+		current = current->next;
+	return (current);
+}
+
+int	ft_lstsize(t_stack *lst)
+{
+	int		count;
+	t_stack	*current;
+
+	current = lst;
+	count = 0;
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
+}
 
 t_stack	*small_value(t_stack *node)
 {

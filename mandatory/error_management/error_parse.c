@@ -37,3 +37,16 @@ int	error_sytax(char *str)
 	}
 	return (0);
 }
+
+int	error_repetition(t_stack *a, long nbr)
+{
+	if (a == NULL)
+		return (0);
+	while (a)
+	{
+		if (a->value == nbr)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}

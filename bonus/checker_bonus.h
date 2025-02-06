@@ -41,34 +41,34 @@ char		*ft_strdup(char *s);
 int			found_newline(char	*str);
 char		*ft_init(char *str);
 int			main(int argc, char **argv);
-void		creat_stack(t_stack **a, char **argv, bool checker);
+void		creat_stack(t_stack **a, char **argv);
 int			ft_lstsize(t_stack *lst);
 t_stack		*ft_lstlast(t_stack *lst);
 
 // swap
-void		sa(t_stack **a, bool checker);
-void		sb(t_stack **b, bool checker);
-void		ss(t_stack **b, t_stack **a, bool checker);
+void		sa(t_stack **a);
+void		sb(t_stack **b);
+void		ss(t_stack **b, t_stack **a);
 
 // rotate
-void		ra(t_stack **a, bool checker);
-void		rb(t_stack **b, bool checker);
-void		rr(t_stack **a, t_stack **b, bool checker);
+void		ra(t_stack **a);
+void		rb(t_stack **b);
+void		rr(t_stack **a, t_stack **b);
 
 // reverse rotate
-void		rra(t_stack **a, bool checker);
-void		rrb(t_stack **b, bool checker);
-void		rrr(t_stack **a, t_stack **b, bool checker);
+void		rra(t_stack **a);
+void		rrb(t_stack **b);
+void		rrr(t_stack **a, t_stack **b);
 
 // push
-void		pa(t_stack **a, t_stack **b, bool checker);
-void		pb(t_stack **b, t_stack **a, bool checker);
+void		pa(t_stack **a, t_stack **b);
+void		pb(t_stack **b, t_stack **a);
 
 // error
 void		free_stack(t_stack **a);
 int			error_sytax(char *str);
 int			error_repetition(t_stack *a, int nbr);
-void		error_free(t_stack **a, char **argv, bool checker);
+void		error_free(t_stack **a, char **argv);
 void		free_matrix(char **str);
 int			ft_atoi(char *str);
 char		**ft_split(char *str, char c);
