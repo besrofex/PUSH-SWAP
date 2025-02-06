@@ -3,7 +3,7 @@
 static char *join_args(char **av, int ac)
 {
    int i;
-   char  *argsjoin;
+   char  *argsjoin = NULL;
 
    i = 1;
    while (i < ac)
@@ -26,6 +26,7 @@ void  parse(t_stack **a, char **av, int ac)
    char **argssplit;
 
    argsjoin = join_args(av, ac);
+	printf("%s\n", argsjoin);
    argssplit = ft_split(argsjoin, ' ');
    free(argsjoin);
    creat_stack(a, argssplit);

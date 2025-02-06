@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:28:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 16:20:22 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 21:20:19 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 int	check_sort(t_stack *a)
 {
+	int	i;
+
+	i = 0;
 	if (a == NULL)
 		return (1);
 	while (a->next)
 	{
 		if (a->value < a->next->value)
-			return (1);
+			i++;
 		a = a->next;
 	}
+	if (i == ft_lstsize(a))
+		return (1);
 	return (0);
 }
 
@@ -60,29 +65,32 @@ void	sort_4(t_stack **a, t_stack **b)
 	}
 	else
 		rra(a);
-	pb(b, a);
-	sort_3(a);
-	pa(a, b);
+	if (!(check_sort(*a)))
+	{
+		pb(b, a);
+		sort_3(a);
+		pa(a, b);
+	}
 }
 
 void	sort_5(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-	t_stack	*min;
-	int i;
+	int	i;
+	int	min_pos;
 
-	min = small_value(*a);
-	tmp = (*a)->next;
-	i = 5;
-	while (i > 0)
+	min_pos = min_position(a);
+	if (min_pos == 1)
+		ra(a);
+	else if (min_pos > 1)
 	{
-		if (*a != min)
+		i = 5;
+		while (i > min_pos)
 		{
-			ra(a);
+			rra(a);
 			i--;
 		}
 	}
-	pb(b, a);
+	pb(a, b);
 	sort_4(a, b);
 	pa(a, b);
 }

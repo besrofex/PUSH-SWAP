@@ -14,7 +14,7 @@ void  free_matrix(char **str)
 
 void  ft_error(char *str)
 {
-   write(2, "Error", 5);
+   write(2, "Error\n", 6);
    free(str);
    exit(1);
 }

@@ -27,7 +27,9 @@ void	sort(t_stack **a, t_stack **b)
 
 	d = decide(a);
 	size = ft_lstsize(*a);
-   if (size == 2)
+	if (check_sort(*a))
+		return ;
+   else if (size == 2)
 		sort_2(a);
 	else if (size == 3)
 		sort_3(a);

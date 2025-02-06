@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 19:04:35 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 21:20:46 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	sort_5(t_stack **a, t_stack **b);
 void	move_to_b(t_stack **a, t_stack **b, int d);
 void	move_to_a(t_stack **a, t_stack **b);
 int			check_sort(t_stack *a);
+int	min_position(t_stack **b);
 
 // parsing
 void  parse(t_stack **a, char **av, int ac);

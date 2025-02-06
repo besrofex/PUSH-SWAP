@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 16:21:00 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 21:55:09 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,29 @@ static int	max_position(t_stack **b)
 	return (pos);
 }
 
-// static int	min_position(t_stack **b)
-// {
-// 	t_stack	*tmp;
-// 	int		i;
-// 	int		min_temp;
-// 	int		pos;
+int	min_position(t_stack **b)
+{
+	t_stack	*tmp;
+	int		i;
+	int		min_temp;
+	int		pos;
 
-// 	i = 0;
-// 	pos = i;
-// 	min_temp = (*b)->value;
-// 	tmp = *b;
-// 	while (i < ft_lstsize(*b) - 1)
-// 	{
-// 		tmp = tmp->next;
-// 		i++;
-// 		if (tmp->value < min_temp)
-// 		{
-// 			min_temp = tmp->value;
-// 			pos = i;
-// 		}
-// 	}
-// 	return (pos);
-// }
+	i = 0;
+	pos = i;
+	min_temp = (*b)->value;
+	tmp = *b;
+	while (i < ft_lstsize(*b) - 1)
+	{
+		tmp = tmp->next;
+		i++;
+		if (tmp->value < min_temp)
+		{
+			min_temp = tmp->value;
+			pos = i;
+		}
+	}
+	return (pos);
+}
 
 void	move_to_b(t_stack **a, t_stack **b, int d)
 {
@@ -77,7 +77,7 @@ void	move_to_b(t_stack **a, t_stack **b, int d)
 		else if ((*a)->curr_position <= i + ((size >= 100) * 32 + (size < 100) * 16))
 		{
 			i++;
-			pb(a, b);
+			pb(b, a);
 			rb(b);
 		}
 		else if (d)
@@ -97,11 +97,16 @@ void	move_to_a(t_stack **a, t_stack **b)
 	{
 		pos = max_position(b);
 		if (pos <= ft_lstsize(*b) / 2)
+		{
 			while (pos-- > 0)
 				rb(b);
+		}
 		else
+		{
 			while (pos++ < ft_lstsize(*b))
 				rrb(b);
+		}
+		
 		pa(a, b);
 	}
 }
