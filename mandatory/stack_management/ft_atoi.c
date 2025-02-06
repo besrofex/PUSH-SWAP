@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:31:10 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 16:17:32 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 19:40:13 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ long	ft_atoi(char *str)
 {
 	int		i;
 	int		signe;
-	long	nb;
+	unsigned long long	nb;
 
 	i = 0;
 	nb = 0;
@@ -41,14 +41,14 @@ long	ft_atoi(char *str)
 	if (str[i] == 43 || str[i] == 45)
 	{
 		if (str[i] == 45)
-			signe *= -1;
+			signe = -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb *= 10;
-		nb += str[i] - 48;
+		nb += str[i] - '0';
 		i++;
 	}
-	return (nb * signe);
+	return ((long)nb * signe);
 }

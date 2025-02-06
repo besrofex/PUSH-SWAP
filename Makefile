@@ -1,5 +1,5 @@
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -g -c
+CFLAGS	= -Wall -Werror -Wextra -g
 RM = rm -f
 
 NAME 	= push_swap

@@ -6,78 +6,92 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:28:34 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/22 20:28:34 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 19:04:21 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	count_words(char *s, char sep)
+static int	count_words(char const *s, char c)
 {
 	int	i;
 	int	count;
 
-	count = 0;
 	i = 0;
+	count = 0;
 	if (!s)
-		return (0);
+		return (count);
 	while (s[i])
 	{
-		if (s[i] != sep && (s[i + 1] == sep || s[i + 1] == '\0'))
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			count++;
 		i++;
 	}
 	return (count);
 }
 
-static char	*get_next_word(char *str, char c)
+static char	*copy(char const *start, char const *end)
 {
 	int		i;
-	int		count;
-	int		len;
-	char	*next_str;
+	char	*copy;
 
 	i = 0;
-	count = 0;
-	len = 0;
-	while (*str == c)
-		count++;
-	while ((str[count + len] != c) && str[count + len])
-		len++;
-	next_str = malloc(sizeof(char) * (len + 1));
-	if (!next_str)
+	copy = (char *)malloc(end - start + 1);
+	if (!copy)
 		return (NULL);
-	while ((str[count] != c) && str[count])
-		next_str[i++] = str[count++];
-	next_str[i] = '\0';
-	return (next_str);
+	while (start < end)
+		copy[i++] = *start++;
+	copy[i] = '\0';
+	return (copy);
 }
 
-char	**ft_split(char *str, char c)
+char	**free_splitted(char **splitted)
 {
-	char	**arr;
-	int		words_nbr;
-	int		i;
+	int	i;
 
 	i = 0;
-	words_nbr = count_words(str, c);
-	if (!words_nbr)
-		exit(1);
-	arr = malloc(sizeof(char *) * (words_nbr + 2));
-	if (!arr)
+	while (splitted[i])
+		i++;
+	while (i > 0)
+		free(splitted[--i]);
+	free(splitted);
+	return (NULL);
+}
+
+static char	**allocate(char const *s, char c)
+{
+	char	**splitted;
+
+	if (!s)
 		return (NULL);
-	while (0 <= words_nbr--)
+	splitted = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	return (splitted);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char		**splitted;
+	char const	*start;
+	int			i;
+
+	splitted = allocate(s, c);
+	if (!splitted)
+		return (NULL);
+	i = 0;
+	while (*s)
 	{
-		if (i == 0)
+		if (*s == c)
+			s++;
+		else
 		{
-			arr[i] = malloc(sizeof(char));
-			if (!arr)
-				return (NULL);
-			arr[i++] = NULL;
-			continue ;
+			start = s;
+			while (*s && *s != c)
+				s++;
+			splitted[i++] = copy(start, s);
+			if (!splitted[i - 1])
+				return (free_splitted(splitted));
 		}
-		arr[i++] = get_next_word(str, c);
 	}
-	arr[i] = NULL;
-	return (arr);
+	splitted[i] = NULL;
+	return (splitted);
 }

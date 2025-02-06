@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:04:04 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 16:15:56 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 19:40:57 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	error_free(t_stack **a, char **str)
 {
 	free_stack(a);
 	free_matrix(str);
-	write(2, "Error\n", 6);
+	write(2, "hhhhhh\n", 6);
 	exit(1);
 }
 

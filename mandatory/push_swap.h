@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 16:55:04 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 19:04:35 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			check_sort(t_stack *a);
 // parsing
 void  parse(t_stack **a, char **av, int ac);
 char	*ft_strjoin(char *s1, char *s2);
-char		**ft_split(char *s, char c);
+char		**ft_split(char const *s, char c);
 
 // str utils
 int   is_empty(char *str);

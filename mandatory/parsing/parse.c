@@ -4,20 +4,17 @@ static char *join_args(char **av, int ac)
 {
    int i;
    char  *argsjoin;
-   char  *tmp;
 
    i = 1;
    while (i < ac)
    {
-      tmp = argsjoin;
       if(is_empty(av[i]))
 		{
-			tmp = NULL;
-			write(2, "Error\n", 6);
+			argsjoin = NULL;
+			write(1, "Error\n", 6);
 			exit(1);
 		}
       argsjoin = ft_strjoin(argsjoin, av[i]);
-		tmp = NULL;
       i++;
    }
 	return (argsjoin);
