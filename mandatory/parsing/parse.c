@@ -10,18 +10,23 @@ static char *join_args(char **av, int ac)
    while (i < ac)
    {
       tmp = argsjoin;
-      if(!(is_empty(av[i])))
-         ft_error(tmp);
+      if(is_empty(av[i]))
+		{
+			tmp = NULL;
+			write(2, "Error\n", 6);
+			exit(1);
+		}
       argsjoin = ft_strjoin(argsjoin, av[i]);
-      free(tmp);
+		tmp = NULL;
       i++;
    }
+	return (argsjoin);
 }
 
 void  parse(t_stack **a, char **av, int ac)
 {
    char *argsjoin;
-   char *argssplit;
+   char **argssplit;
 
    argsjoin = join_args(av, ac);
    argssplit = ft_split(argsjoin, ' ');

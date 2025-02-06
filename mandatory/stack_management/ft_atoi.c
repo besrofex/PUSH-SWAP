@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:31:10 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/22 20:31:10 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:17:32 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static int	is_space(char c)
 	return (0);
 }
 
-static int	check_signe(int signe)
-{
-	if (signe < 0)
-		return (0);
-	else
-		return (-1);
-}
+// static int	check_signe(int signe)
+// {
+// 	if (signe < 0)
+// 		return (0);
+// 	else
+// 		return (-1);
+// }
 
 long	ft_atoi(char *str)
 {

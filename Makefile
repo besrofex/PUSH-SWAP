@@ -1,11 +1,11 @@
 CC		= cc
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -g -c
 RM = rm -f
 
 NAME 	= push_swap
 NAME_BONUS = checker
 
-SRCS = main.c $(wildcard mandatory/commands/*.c) $(wildcard mandatory/stack_management/*.c) $(wildcard mandatory/error_management/*.c) $(wildcard mandatory/push_swap_sort/*.c) $(wildcard mandatory/parsing/*.c)
+SRCS = mandatory/main.c $(wildcard mandatory/commands/*.c) $(wildcard mandatory/stack_management/*.c) $(wildcard mandatory/error_management/*.c) $(wildcard mandatory/push_swap_sort/*.c) $(wildcard mandatory/parsing/*.c)
 SRCS_BONUS = $(wildcard bonus/*.c)
 OBJ = $(SRCS:.c=.o)
 OBJ_BONUS = $(SRCS_BONUS:.c=.o)

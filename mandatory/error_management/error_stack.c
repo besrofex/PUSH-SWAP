@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_free.c                                       :+:      :+:    :+:   */
+/*   error_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:04:04 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:43:08 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:15:56 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	error_free(t_stack **a, char *str)
+void	error_free(t_stack **a, char **str)
 {
 	free_stack(a);
-	free(str);
+	free_matrix(str);
 	write(2, "Error\n", 6);
 	exit(1);
 }

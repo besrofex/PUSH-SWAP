@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:36:45 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 17:54:46 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:55:04 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -26,7 +27,7 @@ typedef struct s_stack
 }					t_stack;
 
 // stack management
-void	creat_stack(t_stack **a, char *str);
+void	creat_stack(t_stack **a, char **str);
 long			ft_atoi(char *str);
 int			ft_lstsize(t_stack *lst);
 t_stack		*ft_lstlast(t_stack *lst);
@@ -36,9 +37,10 @@ t_stack	*find_highest(t_stack *head);
 // error management
 int			error_sytax(char *str);
 int			error_repetition(t_stack *a, int nbr);
-void	error_free(t_stack **a, char *str);
+void	error_free(t_stack **a, char **str);
 void		free_stack(t_stack **a);
 void		free_matrix(char	**str);
+void  ft_error(char *str);
 
 // main
 int			main(int argc, char **argv);
@@ -74,7 +76,7 @@ int			check_sort(t_stack *a);
 
 // parsing
 void  parse(t_stack **a, char **av, int ac);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char		**ft_split(char *s, char c);
 
 // str utils

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_syntax.c                                     :+:      :+:    :+:   */
+/*   error_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:59:10 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:36:47 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:45:47 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	error_sytax(char *str)
 	{
 		if (str[i + 1] < '0' || str[i + 1] > '9')
 			return (1);
+		i++;
 	}
 	while (str[i])
 	{
@@ -38,7 +39,7 @@ int	error_sytax(char *str)
 	return (0);
 }
 
-int	error_repetition(t_stack *a, long nbr)
+int	error_repetition(t_stack *a, int nbr)
 {
 	if (a == NULL)
 		return (0);

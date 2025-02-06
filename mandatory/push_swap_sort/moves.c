@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_init.c                                   :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 16:44:16 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:21:00 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,29 @@ static int	max_position(t_stack **b)
 	return (pos);
 }
 
-static int	min_position(t_stack **b)
-{
-	t_stack	*tmp;
-	int		i;
-	int		min_temp;
-	int		pos;
+// static int	min_position(t_stack **b)
+// {
+// 	t_stack	*tmp;
+// 	int		i;
+// 	int		min_temp;
+// 	int		pos;
 
-	i = 0;
-	pos = i;
-	min_temp = (*b)->value;
-	tmp = *b;
-	while (i < ft_lstsize(*b) - 1)
-	{
-		tmp = tmp->next;
-		i++;
-		if (tmp->value < min_temp)
-		{
-			min_temp = tmp->value;
-			pos = i;
-		}
-	}
-	return (pos);
-}
+// 	i = 0;
+// 	pos = i;
+// 	min_temp = (*b)->value;
+// 	tmp = *b;
+// 	while (i < ft_lstsize(*b) - 1)
+// 	{
+// 		tmp = tmp->next;
+// 		i++;
+// 		if (tmp->value < min_temp)
+// 		{
+// 			min_temp = tmp->value;
+// 			pos = i;
+// 		}
+// 	}
+// 	return (pos);
+// }
 
 void	move_to_b(t_stack **a, t_stack **b, int d)
 {
