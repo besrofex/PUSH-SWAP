@@ -84,21 +84,24 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1)
-		return (0);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	creat_stack(&a, argv);
-	len = ft_lstsize(a);
-	next_ligne = get_next_line(STDIN_FILENO);
-	while (next_ligne)
+	if (argc > 1)
 	{
-		parse_command(&a, &b, next_ligne);
+		parse(&a, argv, argc);
+		creat_stack(&a, argv);
+		len = ft_lstsize(a);
 		next_ligne = get_next_line(STDIN_FILENO);
+		while (next_ligne)
+		{
+			parse_command(&a, &b, next_ligne);
+			next_ligne = get_next_line(STDIN_FILENO);
+		}
+		if (check_sort(a) && ft_lstsize(a) == len)
+			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
+		free_stack(&a);
+		free_stack(&b);
+
 	}
-	if (check_sort(a) && ft_lstsize(a) == len)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
-	free(a);
+	return (0);
 }
