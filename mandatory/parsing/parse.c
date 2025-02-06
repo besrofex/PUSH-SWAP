@@ -26,7 +26,6 @@ void  parse(t_stack **a, char **av, int ac)
    char **argssplit;
 
    argsjoin = join_args(av, ac);
-	printf("%s\n", argsjoin);
    argssplit = ft_split(argsjoin, ' ');
    free(argsjoin);
    creat_stack(a, argssplit);

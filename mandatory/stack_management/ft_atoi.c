@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:31:10 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 19:40:13 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 22:30:49 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ long	ft_atoi(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if(nb>nb*10 + str[i] - '0')
+			return LONG_MAX; 
 		nb *= 10;
 		nb += str[i] - '0';
 		i++;

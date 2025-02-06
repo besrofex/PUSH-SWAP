@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 21:55:09 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/06 22:38:04 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	move_to_b(t_stack **a, t_stack **b, int d)
 		if ((*a)->curr_position <= i)
 		{
 			i++;
-			pb(a, b);
+			pb(b, a);
 		}
 		else if ((*a)->curr_position <= i + ((size >= 100) * 32 + (size < 100) * 16))
 		{
