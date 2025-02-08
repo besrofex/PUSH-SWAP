@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:28:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/08 13:42:42 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:15:37 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort_2(t_stack **a)
 void	sort_3(t_stack **a)
 {
 	t_stack	*max;
-	
+
 	max = find_highest(*a);
 	if (*a == max)
 		ra(a);
@@ -69,7 +69,7 @@ void	sort_4(t_stack **a, t_stack **b)
 
 void	sort_5(t_stack **a, t_stack **b)
 {
-	t_stack*	min;
+	t_stack	*min;
 
 	min = small_value(*a);
 	while (*a != min)
@@ -77,7 +77,7 @@ void	sort_5(t_stack **a, t_stack **b)
 		if (min_position(a) < ft_lstsize(*a) / 2)
 			ra(a);
 		else
-			rra(a);	
+			rra(a);
 	}
 	pb(b, a);
 	sort_4(a, b);

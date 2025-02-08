@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:59:10 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 19:47:08 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:21:25 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	error_sytax(char *str)
 	while (str[i])
 	{
 		if (is_number(str[i]) == 0)
-			return(1);
+			return (1);
 		i++;
 	}
 	return (0);

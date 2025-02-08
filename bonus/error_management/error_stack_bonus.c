@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   eroor_str.c                                        :+:      :+:    :+:   */
+/*   error_stack_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 22:44:53 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/08 14:35:03 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/23 21:04:04 by ylabser           #+#    #+#             */
+/*   Updated: 2025/02/08 16:31:45 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker_bonus.h"
 
-void  free_matrix(char **str)
+void	error_free(t_stack **a, char **str)
 {
-   int i;
-
-   i = 0;
-   while (str[i])
-      i++;
-   while (i > 0)
-      free(str[i--]);
-   free(str[i]);
+	free_stack(a);
+	free_matrix(str);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-void  ft_error(char *str)
+void	free_stack(t_stack **a)
 {
-   write(2, "Error\n", 6);
-   free(str);
-   exit(1);
+	t_stack	*curr;
+	t_stack	*tmp;
+
+	curr = *a;
+	while (curr)
+	{
+		tmp = curr->next;
+		free(curr);
+		curr = tmp;
+	}
+	*a = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/08 14:13:24 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:16:54 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	move_to_b(t_stack **a, t_stack **b, int d)
 			i++;
 			pb(b, a);
 		}
-		else if ((*a)->curr_position <= i + ((size >= 150) * 36 + (size < 150) * 10))
+		else if ((*a)->curr_position <= i + ((size >= 150) * 36
+				+ (size < 150) * 10))
 		{
 			i++;
 			pb(b, a);
@@ -106,7 +107,6 @@ void	move_to_a(t_stack **a, t_stack **b)
 			while (pos++ < ft_lstsize(*b))
 				rrb(b);
 		}
-		
 		pa(a, b);
 	}
 }

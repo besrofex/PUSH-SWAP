@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_command.c                                     :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 12:02:59 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/08 14:35:31 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/25 15:21:23 by ylabser           #+#    #+#             */
+/*   Updated: 2025/02/08 16:29:03 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker_bonus.h"
 
-static void	swap(t_stack **head)
+static void	reverse_rotate(t_stack	**head)
 {
-	int	tmp;
+	t_stack	*last;
+	t_stack	*prev;
 
-	if (!head || !(*head)->next)
+	if (!head || !(*head) || !(*head)->next)
 		return ;
-	tmp = (*head)->value;
-	(*head)->value = (*head)->next->value;
-	(*head)->next->value = tmp;
+	prev = *head;
+	while (prev->next->next)
+		prev = prev->next;
+	last = prev->next;
+	prev->next = NULL;
+	last->next = *head;
+	*head = last;
 }
 
-void	sa(t_stack **a)
+void	rra(t_stack **a)
 {
-	swap(a);
+	reverse_rotate(a);
 }
 
-void	sb(t_stack **b)
+void	rrb(t_stack **b)
 {
-	swap(b);
+	reverse_rotate(b);
 }
 
-void	ss(t_stack **b, t_stack **a)
+void	rrr(t_stack **a, t_stack **b)
 {
-	swap(a);
-	swap(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 }

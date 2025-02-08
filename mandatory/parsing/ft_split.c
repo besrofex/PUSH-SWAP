@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 20:28:34 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 19:04:21 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:35:27 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char	*copy(char const *start, char const *end)
 	return (copy);
 }
 
-char	**free_splitted(char **splitted)
+static char	**free_splitted(char **splitted)
 {
 	int	i;
 
@@ -70,9 +70,9 @@ static char	**allocate(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char		**splitted;
-	char const	*start;
-	int			i;
+	char			**splitted;
+	char const		*start;
+	int				i;
 
 	splitted = allocate(s, c);
 	if (!splitted)

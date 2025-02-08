@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_utils.c                                        :+:      :+:    :+:   */
+/*   str_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 22:44:40 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/08 14:34:57 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:50:22 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,46 +28,40 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!arr)
 		return (NULL);
 	while (s1[i])
-	{
-		arr[i] = s1[i];
-		i++;
-	}
+		arr[i] = s1[i++];
 	arr[i++] = ' ';
 	while (s2[j])
-	{
-		arr[i + j] = s2[j];
-		j++;
-	}
+		arr[i + j] = s2[j++];
 	arr[i + j] = '\0';
 	return (arr);
 }
 
-int   ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-   int i;
+	int	i;
 
-   i = 0;
-   while (str[i])
-      i++;
-   return (i);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int   is_empty(char *str)
+int	is_empty(char *str)
 {
-   int i;
-   int count;
+	int	i;
+	int	count;
 
-   if (ft_strlen(str) == 0)
-      return(1);
-   i = 0;
-   count = 0;
-   while (str[i])
-   {
-      if (str[i] <= 32)
-         count++;
-      i++;
-   }
+	if (ft_strlen(str) == 0)
+		return (1);
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] <= 32)
+			count++;
+		i++;
+	}
 	if (count == ft_strlen(str))
 		return (1);
-   return (0);
+	return (0);
 }
