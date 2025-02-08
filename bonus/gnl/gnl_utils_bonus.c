@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   gnl_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:42:14 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 18:42:14 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 14:49:59 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
-
-size_t	ft_strlen(char *str)
-{
-	int	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "../checker_bonus.h"
 
 int	found_newline(char *str)
 {
@@ -40,7 +28,7 @@ int	found_newline(char *str)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char *s2, int size)
+char	*ft_strnjoin(char *s1, char *s2, int size)
 {
 	int		i;
 	int		j;

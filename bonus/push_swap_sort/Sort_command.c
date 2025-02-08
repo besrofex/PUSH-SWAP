@@ -6,11 +6,11 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:28:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/08 13:42:42 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 14:34:37 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
 int	check_sort(t_stack *a)
 {

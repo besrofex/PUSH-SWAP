@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_bonus.c                                    :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:41:21 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 18:44:10 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/25 15:21:23 by ylabser           #+#    #+#             */
+/*   Updated: 2025/02/08 14:35:21 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../checker_bonus.h"
 
-static void	reverse_rotate(t_stack **head)
+static void	reverse_rotate(t_stack	**head)
 {
-	t_stack	*last_node;
+	t_stack	*last;
+	t_stack	*prev;
 
-	if (head == NULL || *head == NULL || (*head)->next == NULL)
+	if (!head || !(*head) || !(*head)->next)
 		return ;
-	last_node = ft_lstlast(*head);
-	last_node->next = *head;
-	(*head)->prev = last_node;
-	last_node->prev->next = NULL;
-	last_node->prev = NULL;
-	*head = last_node;
+	prev = *head;
+	while (prev->next->next)
+		prev = prev->next;
+	last = prev->next;
+	prev->next = NULL;
+	last->next = *head;
+	*head = last;
 }
 
 void	rra(t_stack **a)

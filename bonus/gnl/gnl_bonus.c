@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   gnl_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:42:00 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 18:42:00 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 14:49:54 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../checker_bonus.h"
 
 static char	*ft_update(char *str)
 {
@@ -69,7 +69,7 @@ static char	*creat_array(char *str, int fd)
 		str = ft_init(NULL);
 	while (read_count > 0)
 	{
-		str = ft_strjoin(str, tmp, read_count);
+		str = ft_strnjoin(str, tmp, read_count);
 		if (found_newline(tmp))
 			break ;
 		read_count = read(fd, tmp, BUFFER_SIZE);

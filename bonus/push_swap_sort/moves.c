@@ -6,11 +6,11 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/08 14:13:24 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 14:34:34 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
 int	max_position(t_stack **b)
 {

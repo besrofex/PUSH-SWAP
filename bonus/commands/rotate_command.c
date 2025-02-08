@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_bonus.c                                       :+:      :+:    :+:   */
+/*   rotate_command.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:41:38 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 18:44:06 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/25 15:18:34 by ylabser           #+#    #+#             */
+/*   Updated: 2025/02/08 14:35:28 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../checker_bonus.h"
 
-static void	push(t_stack **dest, t_stack **src)
+static void	rotate(t_stack **head)
 {
-	t_stack	*push_node;
+	t_stack	*tmp;
+	t_stack	*last;
 
-	if (*src == NULL)
+	if (!head || !(*head) || !(*head)->next)
 		return ;
-	push_node = *src;
-	*src = (*src)->next;
-	push_node->next = NULL;
-	if (*dest == NULL)
-		*dest = push_node;
-	else
-	{
-		push_node->next = (*dest);
-		push_node->next->prev = push_node;
-		*dest = push_node;
-	}
+	last = ft_lstlast(*head);
+	tmp = (*head)->next;
+	(*head)->next = NULL;
+	last->next = *head;
+	*head = tmp;
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	ra(t_stack **a)
 {
-	push(a, b);
+	rotate(a);
 }
 
-void	pb(t_stack **b, t_stack **a)
+void	rb(t_stack **b)
 {
-	push(b, a);
+	rotate(b);
+}
+
+void	rr(t_stack **a, t_stack **b)
+{
+	rotate(a);
+	rotate(b);
 }

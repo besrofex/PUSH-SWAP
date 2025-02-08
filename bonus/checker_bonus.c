@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:43:08 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 18:43:08 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/22 20:37:08 by ylabser           #+#    #+#             */
+/*   Updated: 2025/02/08 14:49:32 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,6 @@ static void	parse_command(t_stack **a, t_stack **b, char *comand)
 		error(a, b);
 }
 
-static int	check_sort(t_stack *a)
-{
-	if (a == NULL)
-		return (1);
-	while (a->next)
-	{
-		if (a->value < a->next->value)
-			return (1);
-		a = a->next;
-	}
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -87,7 +74,6 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		parse(&a, argv, argc);
-		creat_stack(&a, argv);
 		len = ft_lstsize(a);
 		next_ligne = get_next_line(STDIN_FILENO);
 		while (next_ligne)
@@ -101,7 +87,6 @@ int	main(int argc, char **argv)
 			write(1, "KO\n", 3);
 		free_stack(&a);
 		free_stack(&b);
-
 	}
 	return (0);
 }

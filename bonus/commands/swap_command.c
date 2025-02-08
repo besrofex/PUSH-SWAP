@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_bonus.c                                       :+:      :+:    :+:   */
+/*   swap_command.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:39:53 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 18:44:33 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/25 12:02:59 by ylabser           #+#    #+#             */
+/*   Updated: 2025/02/08 14:35:31 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../checker_bonus.h"
 
 static void	swap(t_stack **head)
 {
-	t_stack	*first;
-	t_stack	*second;
+	int	tmp;
 
-	if (head == NULL || *head == NULL || (*head)->next == NULL)
+	if (!head || !(*head)->next)
 		return ;
-	first = *head;
-	second = first->next;
-	first->next = second->next;
-	if (second->next != NULL)
-		second->next->prev = first;
-	second->prev = NULL;
-	second->next = first;
-	first->prev = second;
-	*head = second;
+	tmp = (*head)->value;
+	(*head)->value = (*head)->next->value;
+	(*head)->next->value = tmp;
 }
 
 void	sa(t_stack **a)

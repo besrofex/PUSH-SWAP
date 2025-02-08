@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils_bonus.c                                :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 18:40:49 by ylabser           #+#    #+#             */
-/*   Updated: 2025/01/30 18:44:22 by ylabser          ###   ########.fr       */
+/*   Created: 2025/01/22 20:31:10 by ylabser           #+#    #+#             */
+/*   Updated: 2025/02/08 14:34:21 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "../checker_bonus.h"
 
 static int	is_space(char c)
 {
@@ -19,20 +19,19 @@ static int	is_space(char c)
 	return (0);
 }
 
-static int	check_signe(int signe)
-{
-	if (signe < 0)
-		return (0);
-	else
-		return (-1);
-}
+// static int	check_signe(int signe)
+// {
+// 	if (signe < 0)
+// 		return (0);
+// 	else
+// 		return (-1);
+// }
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
 	int		i;
 	int		signe;
-	long	nb;
-	long	valeur_precedente;
+	unsigned long long	nb;
 
 	i = 0;
 	nb = 0;
@@ -42,16 +41,16 @@ int	ft_atoi(char *str)
 	if (str[i] == 43 || str[i] == 45)
 	{
 		if (str[i] == 45)
-			signe *= -1;
+			signe = -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		valeur_precedente = nb;
-		nb = nb * 10 + str[i] - 48;
-		if (nb / 10 != valeur_precedente)
-			return (check_signe(signe));
+		if(nb>nb*10 + str[i] - '0')
+			return LONG_MAX; 
+		nb *= 10;
+		nb += str[i] - '0';
 		i++;
 	}
-	return ((int)(nb * signe));
+	return ((long)nb * signe);
 }
