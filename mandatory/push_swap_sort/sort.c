@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 22:44:07 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 22:44:09 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 12:07:57 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	sort(t_stack **a, t_stack **b)
 		sort_2(a);
 	else if (size == 3)
 		sort_3(a);
-	else if (size == 4)
-		sort_4(a, b);
-	else if (size == 5)
+	// else if (size == 4)
+	// 	sort_4(a, b);
+	else if (size == 5 || size == 4)
 		sort_5(a, b);
-	else
+	else if (size > 5)
 	{
 		move_to_b(a, b, d);
 		move_to_a(a, b);

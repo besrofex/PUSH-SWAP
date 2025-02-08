@@ -6,13 +6,13 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 14:07:12 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 22:38:04 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 11:45:54 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	max_position(t_stack **b)
+int	max_position(t_stack **b)
 {
 	t_stack	*tmp;
 	int		i;

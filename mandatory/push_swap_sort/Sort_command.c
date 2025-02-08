@@ -6,7 +6,7 @@
 /*   By: ylabser <ylabser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:28:29 by ylabser           #+#    #+#             */
-/*   Updated: 2025/02/06 21:20:19 by ylabser          ###   ########.fr       */
+/*   Updated: 2025/02/08 12:18:18 by ylabser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 int	check_sort(t_stack *a)
 {
 	int	i;
+	int	size;
 
-	i = 0;
+	i = 1;
 	if (a == NULL)
 		return (1);
+	size = ft_lstsize(a);
 	while (a->next)
 	{
 		if (a->value < a->next->value)
 			i++;
 		a = a->next;
 	}
-	if (i == ft_lstsize(a))
+	if (i == size)
 		return (1);
 	return (0);
 }
@@ -33,13 +35,13 @@ int	check_sort(t_stack *a)
 void	sort_2(t_stack **a)
 {
 	if ((*a)->value > (*a)->next->value)
-		ra(a);
+		sa(a);
 }
 
 void	sort_3(t_stack **a)
 {
 	t_stack	*max;
-
+	
 	max = find_highest(*a);
 	if (*a == max)
 		ra(a);
@@ -49,48 +51,45 @@ void	sort_3(t_stack **a)
 		sa(a);
 }
 
-void	sort_4(t_stack **a, t_stack **b)
-{
-	t_stack	*min;
-	t_stack	*tmp;
-
-	min = small_value(*a);
-	tmp = (*a)->next;
-	if (tmp == min)
-		ra(a);
-	else if (tmp->next == min)
-	{
-		rra(a);
-		rra(a);
-	}
-	else
-		rra(a);
-	if (!(check_sort(*a)))
-	{
-		pb(b, a);
-		sort_3(a);
-		pa(a, b);
-	}
-}
+// void	sort_4(t_stack **a, t_stack **b)
+// {
+// 	if (min_position(a) == 2)
+// 		ra(a);
+// 	else if (min_position(a) == 3)
+// 	{
+// 		rra(a);
+// 		rra(a);
+// 	}
+// 	else if (min_position(a) == 4)
+// 		rra(a);
+// 	pb(b, a);
+// 	sort_3(a);
+// 	pa(a, b);
+// }
 
 void	sort_5(t_stack **a, t_stack **b)
 {
-	int	i;
-	int	min_pos;
+	int	pos;
 
-	min_pos = min_position(a);
-	if (min_pos == 1)
-		ra(a);
-	else if (min_pos > 1)
+	while (*a)
 	{
-		i = 5;
-		while (i > min_pos)
+		pos = min_position(a);
+		if (pos < ft_lstsize(*a) / 2 && pos != 0)
+		{
+			ra(a);
+			pos--;
+		}
+		else if (pos != 0)
 		{
 			rra(a);
-			i--;
+			pos--;
 		}
+		if (ft_lstsize(*a) == 3)
+			break ;
+		if ((*a) == small_value(*a))
+			pb(a, b);
 	}
-	pb(a, b);
-	sort_4(a, b);
+	sort_3(a);
+	pa(a, b);
 	pa(a, b);
 }
