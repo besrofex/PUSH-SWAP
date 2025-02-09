@@ -39,6 +39,8 @@ void	parse(t_stack **a, char **av, int ac)
 	char	**argssplit;
 
 	argsjoin = join_args(av, ac);
+	if (!argsjoin)
+		exit(1);
 	argssplit = ft_split(argsjoin, ' ');
 	free(argsjoin);
 	creat_stack(a, argssplit);
